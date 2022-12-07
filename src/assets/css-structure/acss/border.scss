@@ -1,0 +1,29 @@
+/* 圆角大小
+[radius1] {
+  border-radius:1px;
+}
+...
+[circle] {
+border-radius:100rem;
+}
+---------------------- */
+@for $i from 1 through 50 {
+  [radius#{$i}] {
+    border-radius: #{$i}Px; // 这里大写
+    overflow: hidden;
+  }
+}
+
+[circle] {
+  // border-radius: 100rem; // 足够大的值就变为圆形
+  border-radius: 50%;
+}
+
+/* 边框
+[bor-base] {
+border: 1px solid #E5E5E5;
+}
+---------------------- */
+[bor-base] {
+  border: $border-base;
+}

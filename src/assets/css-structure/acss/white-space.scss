@@ -1,0 +1,61 @@
+/* 间距大小
+[ml(1/2/3/.../30)] {
+  margin-left:(1/2/3...30)px;
+}
+[mr(1/2/3/.../30)] {
+  margin-right:(1/2/3...30)px;
+}
+[mt(1/2/3/.../30)] {
+  margin-top:(1/2/3...30)px;
+}
+[mb(1/2/3/.../30)] {
+  margin-bottom:(1/2/3...30)px;
+}
+
+[pl(1/2/3/.../30)] {
+  padding-left:(1/2/3...30)px;
+}
+..
+---------------------- */
+
+$direction: (l left, r right, t top, b bottom);
+@for $i from 1 through 30 {
+  @each $type in m, p, v, h, a {
+    @if $type == m {
+      @each $d in $direction {
+        // margin
+        [m#{nth($d,1)}#{$i}] {
+          margin-#{nth($d,2)}: #{$i}px;
+        }
+      }
+    } @else if $type == p {
+      @each $d in $direction {
+        // padding
+        [p#{nth($d,1)}#{$i}] {
+          padding-#{nth($d,2)}: #{$i}px;
+        }
+      }
+    } @else if $type == h {
+      // 水平方向
+      [ph#{$i}] {
+        padding-left: #{$i}px;
+        padding-right: #{$i}px;
+      }
+      [mh#{$i}] {
+        margin-left: #{$i}px;
+        margin-right: #{$i}px;
+      }
+    } @else if $type == v {
+      // 垂直方向，针对padding
+      [pv#{$i}] {
+        padding-top: #{$i}px;
+        padding-bottom: #{$i}px;
+      }
+    } @else {
+      // 所有方向
+      [pa#{$i}] {
+        padding: #{$i}px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/* 字体大小
+[fz24] {
+  font-size:24px;
+}
+[fz48] {
+  font-size:48px
+}
+..
+---------------------- */
+@for $i from 12 through 30 {
+  [fz#{$i}] {
+    font-size: #{$i}px;
+  }
+}

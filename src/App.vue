@@ -1,26 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="app">
+    <h2>欢迎使用模版</h2>
+    <router-link to="/home">home</router-link>
+    <router-link to="/login">login</router-link>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import { onMounted } from 'vue'
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
+  name: 'App',
+  components: {},
+  setup() {
+    onMounted(() => {
+      window.document.documentElement.setAttribute('data-theme', 'cool')
+    })
+  }
+}
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>

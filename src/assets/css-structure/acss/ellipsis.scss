@@ -1,0 +1,16 @@
+/* 省略号
+[ellipsis1] { // 一行进行省略
+    ...
+}
+[ellipsis2] { // 两行进行省略
+    ...
+}
+[ellipsis3] { // 三行进行省略
+    ...
+}
+---------------------- */
+@for $i from 1 through 3 {
+  [ellipsis#{$i}] {
+    @include ellipsis($i); // mixin 来自sassMagic
+  }
+}
